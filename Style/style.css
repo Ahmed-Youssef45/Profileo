@@ -1,0 +1,652 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/* google fonts */
+
+:root{
+  --hue-color: #050919;
+  --main-color: black;
+  --sec-color: white;
+  --shadow-color: #18265a;
+  --background-color: #a6acd8;
+  --section-background: #050919b4;
+}
+html {
+    scroll-behavior: smooth;;
+}
+body {
+  font-family: 'Roboto Slab',  sans-serif;
+  background-color: #050919c4;
+  background-image: url(/images/elctronics.jpg);
+  background-size: cover;
+  background-position: 0 -14px;
+  /* background-repeat: no-repeat; */
+  background-blend-mode: darken;
+  background-attachment: fixed;
+  color: var(--sec-color);
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+a {
+    text-decoration: none;
+    &:visited{
+      color: inherit;
+    }
+}
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+button{
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  background-color: var(--background-color);
+  color: var(--main-color);
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: .7s;
+  & a{
+    color: var(--hue-color);
+  }
+  &:hover{
+    transform: scale(1.1);
+    background-color: #abb1da;
+    box-shadow: 0 0 7px 3px white;
+    & i::before{
+      animation: contact-me-button .4s infinite alternate;;
+    }
+  }
+}
+.head{
+  font-size: 1rem;
+  margin: 0;
+  & span{
+    font-size: 2.5rem;
+    color: var(--background-color);
+  }
+}
+@media (max-width: 991px){
+    .dots-up, .dots-down{
+      display: none;
+    }
+}
+  /* End Dots */
+  /* Small */
+@media (min-width: 768px) {
+    .container {
+      width: 750px;
+    }
+}
+  /* Medium */
+@media (min-width: 992px) {
+    .container {
+      width: 970px;
+    }
+}
+  /* Large */
+@media (min-width: 1200px) {
+    .container {
+      width: 1170px;
+    }
+}
+header{
+  position: fixed;
+  top: 0;
+  max-height: 6rem;
+  width: 100%;
+  z-index: 999;
+  box-shadow: 0 0px 20px 2px #18265a;
+  background-color: transparent;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border-radius: 2px;
+  .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .logo{
+      font-size: 2.3rem;
+      margin: 0.8rem 0;
+      & a{
+        color: var(--background-color);
+      }
+    }
+    & nav{
+      display: flex;
+      align-items: center;
+      & ul{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        & li{
+          height: 100%;
+          margin-left: 2rem;
+          text-align: center;
+          &:last-child{
+            margin-right: 2rem;
+          }
+          & a{
+            color: var(--sec-color);
+            position: relative;
+            transition: 0.5s;
+            &::after{
+              content: '';
+              position: absolute;
+              bottom: -0.4rem;
+              left: -10%;
+              height: 0.125rem;
+              width: 120%;
+              transform: scale(0);
+              transform-origin: right;
+              transition: transform 0.5s;
+              background-color: var(--sec-color);
+            }
+            &:hover{
+              &::after{
+                transform: scaleY(1);
+                transform-origin: left;
+              }
+            }
+          }
+        }
+      }
+      button{
+        color: var(--sec-color);
+        background-color: transparent;
+        outline: none;
+        border: 0;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+    }
+  }
+  @media (max-width: 500px){
+    .container{
+      flex-direction: column;
+      & h2{
+        margin: .6rem 0 5px;
+      }
+      & nav{
+        & ul{
+          & li{
+            margin-left: 1rem;
+            &:last-child{
+              margin-right: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.home{
+  padding-top: 5rem;
+  margin-bottom: 2.5rem;
+  height: 100svh;
+  .container{
+    position: relative;
+    height: 100%;
+    .content{
+      height: 90%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
+      gap: 5%;
+      align-items: center;
+      .text{
+        & h2{
+          font-size: 3rem;
+          margin: 0px 0 20px;
+          opacity: 0;
+          animation: photo 2s forwards;
+            animation-delay: 3s;
+          .ahmed{
+            color: var(--background-color);
+          }
+        }
+        .typing{
+          & p{
+            display: block;
+            max-width: 100%;
+            border-right: 2px solid var(--sec-color);
+            white-space: nowrap;
+            overflow: hidden;
+            &:nth-child(1){
+              margin-left: 18%;
+              transform: translateX(-39%);
+              font-size: 1.5625rem;
+              width: 15.625rem;
+              color: var(--background-color);
+              opacity: 0;
+              animation: typing 1s steps(25) forwards;
+              animation-delay: 3.5s;
+            }
+            &:nth-child(2){
+              margin-left: 36%;
+              transform: translateX(-39%);
+              width: 31rem;
+              opacity: 0;
+              animation: typing2 2s steps(40) forwards, cursor .5s 2s infinite;
+              animation-delay: 4.5s;
+            }
+            &:nth-child(3){
+              margin-left: 16%;
+              transform: translateX(-39%);
+              width: 14rem;
+              opacity: 0;
+              animation: typing3 1s steps(20) forwards, cursor .5s 2s infinite;
+              animation-delay: 6.5s;
+            }
+          }
+        }
+        & button{
+          opacity: 0;
+          animation: photo 2s forwards;
+          animation-delay: 7.5s;
+          /* & i::before{
+            transition: .4s;
+          } */
+          &:hover{
+            transform: scale(1.1);
+            background-color: #abb1da;
+            box-shadow: 0 0 7px 3px white;
+            & i::before{
+              animation: contact-me-button .4s infinite alternate;;
+            }
+          }
+        }
+      }
+      .image{
+        display: flex;
+        justify-content: center;
+        position: relative;
+        .social{
+          position: absolute;
+          bottom: 30px;
+          display: flex;
+          align-items: center;
+          flex-direction: row;
+          z-index: 999;
+          & a{
+            flex:  1;
+            flex-basis: 40px;
+            font-size: 1.5625rem;
+            transition: .5s;
+            &:nth-child(1){
+              transform: scale(0);
+              animation: main-social 1s forwards;
+              animation-delay: 8s;
+            }
+            &:nth-child(2){
+              margin: 0 50px;
+              transform: scale(0);
+              animation: main-social 1s forwards;
+              animation-delay: 8.4s;
+            }
+            &:nth-child(3){
+              transform: scale(0);
+              animation: main-social 1s forwards;
+              animation-delay: 8.8s;
+            }
+            & i::before{
+              transition: 0.5s;
+            }
+            &:hover{
+              & i{
+                &::before{
+                  color: var(--background-color);
+                  transform: scale(1.2);
+                }
+              }
+            }
+          }
+        }
+        .img{
+          position: relative;
+          width: 30rem;
+          height: 30rem;
+          border-radius: 50%;
+          /* border: 2px solid white; */
+          background: repeating-conic-gradient(
+          from var(--a),
+          var(--shadow-color) 0%,
+          var(--shadow-color) 5%,
+          transparent 5%,
+          transparent 40%,
+          var(--shadow-color) 50%
+          );
+          animation: rotate 2.5s 1 linear;
+          overflow: hidden;
+          &::after{
+            content: '';
+            inset: 0;
+            border-radius: 50%;
+            position: absolute;
+            background: repeating-conic-gradient(
+              from var(--b),
+              var(--sec-color) 0%,
+              var(--sec-color) 5%,
+              transparent 5%,
+              transparent 40%,
+              var(--sec-color) 50%
+              
+          );
+          animation: rotate-reverse 2.5s 1 linear;
+          border-radius: 1rem;
+          }
+          &::before{
+            content: '';
+            position: absolute;
+            inset: 5px;
+            background-color: var(--hue-color);
+            border-radius: 50%;
+            transition: .5s;
+            z-index: 9;
+            /* display: none; */
+          }
+          & img{
+            position: absolute;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 50%;
+            z-index: 10;
+            opacity: 0;
+            animation: photo 2s forwards;
+            animation-delay: 2.5s;
+          }
+        }
+      }
+    }
+    @media (max-width: 990px){
+      .content{
+        padding-top: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .text{
+          max-width: 100%;
+          text-align: center;
+          & h2{
+            text-align: center;
+            font-size: 1.6rem;
+          }
+          .typing{
+            position: relative;
+            font-size: 11px;
+            max-width: 100%;
+            & p{
+              text-align: start;
+              margin-left: 50%;
+              transform: translateX(-50%);
+              &:first-child{
+                margin-left: 45%;
+              }
+              &:nth-child(2){
+                margin-left: 39%;
+                width: 21rem;
+              }
+              &:last-child{
+              margin-left: 45%;
+              margin-top: 20px;
+              margin-bottom: 20px;
+              max-width: 45%;
+              }
+            }
+          }
+        }
+        .social{
+          flex-direction: row;
+          & a{
+            &:nth-child(2){
+              padding: 0 0px;
+            }
+          }
+        }
+        .image{
+          order: -1;
+          .img{
+          width: 21.875rem;
+          height: 21.875rem;
+          }
+        }
+      }
+      .scroll-down{
+        display: none;
+      }
+    }
+  }
+}
+.about{
+  background-color: var(--section-background);
+  padding: 1.875rem 0 2.5rem 0;
+  .container{
+    .skills-content{
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(45%,1fr));
+      align-items: center;
+      gap:  6vw;
+      .skills-text{
+        .projects{
+          padding: 0.625rem;
+        }
+      }
+      .skills-skills{
+        display: grid;
+        grid-template-columns: 45%  45%;
+        gap: 10% 5%;
+        justify-content: center;
+        .skill{
+          position: relative;
+          text-align: center;
+          background-color: var(--background-color);
+          color: var(--hue-color);
+          border-radius: 0.625rem;
+          padding: 0.625rem 0;
+          color: var(--hue-color);
+          transition: 0.5s;
+          & i{
+            font-size: 2rem;
+            /* color: var(--sec-color); */
+          }
+          &:last-child{
+            left: 50%;
+          }
+          &:hover{
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 990px) {
+    .container{
+      .skills-content{
+        text-align: center;
+        grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+        & .skills-skills{
+        }
+      }
+    }
+  }
+}
+.projects{
+  padding-bottom: 30px;
+  .container{
+    .head{
+      text-align: center;
+      & h2{
+        margin-bottom: 30px;
+      }
+    }
+    .projects-content{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(21.25rem, 1fr));
+      gap:  2rem;
+      .project{
+        position: relative;
+        text-align: center;
+        background-size: cover;
+        border-radius: 0.8rem;
+        height: 12rem;
+        overflow: hidden;
+        transition: 0.7s;
+        .project-image{
+            max-width: 100%;
+            transition: 0.7s;
+            &:nth-child(3){
+              position: 20px;
+            }
+        }
+        .project-text{
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          transition: 0.7s;
+          color: var(--hue-color);
+          background-image: linear-gradient(
+            to bottom,
+            transparent  5%,
+            #a6acd8 95%
+          );
+          & p{
+            margin: 0;
+          }
+          & h3{
+            font-size: 2rem;
+            margin: 0.625rem 0;
+            color: var(--shadow-color);
+          }
+        }
+        &:hover{
+          .project-image{
+            filter: brightness(0.4);
+          }
+          .project-text{
+            top: 0;
+          }
+        }
+      }
+    }
+  }
+}
+@keyframes typing {
+  0%{
+    width: 0%;
+  }
+  1%{
+    opacity: 1;
+  }
+  99.9%{
+    border-right: 2px solid var(--background-color);
+  }
+  100%{
+    opacity: 1;
+    border-right: none;
+  }
+}
+@keyframes typing2 {
+  0%{
+    width: 0%;
+  }
+  1%{
+    opacity: 1;
+  }
+  99.9%{
+    border-right: 2px solid var(--sec-color);
+  }
+  100%{
+    border-right: none;
+    opacity: 1;
+  }
+}
+@keyframes typing3 {
+  0%{
+    width: 0%;
+  }
+  1%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+@keyframes cursor{
+  50% {
+    border-color: transparent;
+  }
+}
+@keyframes contact-me-button{
+  to{
+    transform: translateX(5px);
+  }
+}
+@property --a
+{
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 122deg;
+}
+@property --b
+{
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 238deg;
+}
+@keyframes rotate{
+  0% {
+    --a: 0deg
+  }
+  50% {
+    --a: 360deg
+  }
+  100% {
+    --a: 122deg
+  }
+}
+@keyframes rotate-reverse{
+  0% {
+    --b: 360deg
+  }
+  50% {
+    --b: 0deg
+  }
+  100% {
+    --b: 238deg
+  }
+}
+@keyframes photo{
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes main-social{
+  50%{
+    transform: scale(1);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+@keyframes project-after{
+  100%{
+    top: 0;
+  }
+}
