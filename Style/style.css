@@ -12,14 +12,16 @@
   --shadow-color: #18265a;
   --background-color: #a6acd8;
   --section-background: #050919b4;
+  --logo-color: #cec1a8;
+    --logo-background: #0c1017; 
 }
 html {
     scroll-behavior: smooth;;
 }
 body {
   font-family: 'Roboto Slab',  sans-serif;
-  background-color: #050919c4;
-  background-image: url(/images/elctronics.jpg);
+  /* background-color: #000000; */
+  background-image: url(../images/elctronics.jpg);
   background-size: cover;
   background-position: 0 -14px;
   /* background-repeat: no-repeat; */
@@ -66,9 +68,11 @@ button{
     }
   }
 }
-.head{
+.section-header{
   font-size: 1rem;
   margin: 0;
+  margin-bottom: 20px;
+  text-align: center;
   & span{
     font-size: 2.5rem;
     color: var(--background-color);
@@ -101,7 +105,7 @@ button{
 header{
   position: fixed;
   top: 0;
-  max-height: 6rem;
+  height: 6rem;
   width: 100%;
   z-index: 999;
   box-shadow: 0 0px 20px 2px #18265a;
@@ -113,6 +117,7 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 100%;
     .logo{
       font-size: 2.3rem;
       margin: 0.8rem 0;
@@ -123,25 +128,30 @@ header{
     & nav{
       display: flex;
       align-items: center;
+      height: inherit;
       & ul{
         display: flex;
         align-items: center;
         justify-content: center;
+        height: inherit;
         & li{
-          height: 100%;
+          height: inherit;
           margin-left: 2rem;
           text-align: center;
           &:last-child{
             margin-right: 2rem;
           }
           & a{
+            display: flex;
+            align-items: center;
+            height: inherit;
             color: var(--sec-color);
             position: relative;
             transition: 0.5s;
             &::after{
               content: '';
               position: absolute;
-              bottom: -0.4rem;
+              bottom: 1.7rem;
               left: -10%;
               height: 0.125rem;
               width: 120%;
@@ -280,6 +290,7 @@ header{
             flex-basis: 40px;
             font-size: 1.5625rem;
             transition: .5s;
+            color: var(--background-color);
             &:nth-child(1){
               transform: scale(0);
               animation: main-social 1s forwards;
@@ -296,13 +307,16 @@ header{
               animation: main-social 1s forwards;
               animation-delay: 8.8s;
             }
-            & i::before{
-              transition: 0.5s;
+            & i{
+              transition: .5s;
+              &::before{
+                transition: .5s;
+              }
             }
             &:hover{
               & i{
+                transform: scale(1.2);
                 &::before{
-                  color: var(--background-color);
                   transform: scale(1.2);
                 }
               }
@@ -314,7 +328,6 @@ header{
           width: 30rem;
           height: 30rem;
           border-radius: 50%;
-          /* border: 2px solid white; */
           background: repeating-conic-gradient(
           from var(--a),
           var(--shadow-color) 0%,
@@ -336,9 +349,7 @@ header{
               var(--sec-color) 5%,
               transparent 5%,
               transparent 40%,
-              var(--sec-color) 50%
-              
-          );
+              var(--sec-color) 50%);
           animation: rotate-reverse 2.5s 1 linear;
           border-radius: 1rem;
           }
@@ -350,7 +361,6 @@ header{
             border-radius: 50%;
             transition: .5s;
             z-index: 9;
-            /* display: none; */
           }
           & img{
             position: absolute;
@@ -427,13 +437,13 @@ header{
 }
 .about{
   background-color: var(--section-background);
-  padding: 1.875rem 0 2.5rem 0;
+  padding-bottom: 2.5rem;
   .container{
     .skills-content{
-      display: grid;
+      /* display: grid;
       grid-template-columns: repeat(auto-fit,minmax(45%,1fr));
       align-items: center;
-      gap:  6vw;
+      gap:  6vw; */
       .skills-text{
         .projects{
           padding: 0.625rem;
